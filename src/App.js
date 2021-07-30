@@ -1,6 +1,8 @@
 import './App.css';
+import firebase from './utils/firebaseConfig';
 
-function App() {
+const App = () => {
+  const [isItConnected, setIsItConnected] = useState(false);
   return (
     <div className="App">
       <h1>Hello</h1>
