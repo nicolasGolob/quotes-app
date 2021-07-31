@@ -3,6 +3,7 @@ import firebase from './utils/firebaseConfig';
 import {React, useEffect, useState} from 'react';
 import Main from './components/Main'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+//stylesFirebaseAuth to styling the page, buttons
 
 const App = () => {
   const [isItConnected, setIsItConnected] = useState(false);
@@ -31,12 +32,12 @@ const App = () => {
 
   return (
     <div className="App">
-     {isItConnected ? (<Main/>) : (
+     {isItConnected ? <Main/> : 
         <div className='login-page'>
           <h1>React Crud</h1>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />   
             {/* StyleFirebaseAuth to style the buttons -> from the doc */}
-        </div>)}
+        </div>}
     </div>
   );
 }
