@@ -34,7 +34,7 @@ const App = () => {
     <div className="App">
      {isItConnected ? <Main/> : 
         <div className='login-page'>
-          <h1>React Crud</h1>
+          <h1 className='title-login'> React Crud</h1>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />   
             {/* StyleFirebaseAuth to style the buttons -> from the doc */}
         </div>}
