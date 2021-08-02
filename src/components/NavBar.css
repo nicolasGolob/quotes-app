@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+	justify-content: space-between;
+	padding: 3rem;
+    align-items: center;
+	width: 100%;
+}
+.navbar-name {
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+    color: rgb(185, 185, 185);
+    text-transform: uppercase;
+    justify-self: start;
+    display: flex;
+    align-items: center;
+	transition: 0.7s;
+}
+.nav-links {
+	display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    text-align: left;
+}
+.nav-link{
+    font-size: 2.2rem;
+	margin-left: 5rem;
+    letter-spacing: .18rem;
+	transition: 0.7s;
+    color: rgb(192, 192, 192);
+}
+.nav-disconnect{
+    font-size: 2.2rem;
+	margin-left: 5rem;
+    letter-spacing: .18rem;
+	transition: 0.7s;
+    color: rgb(192, 192, 192);
+}
+.nav-disconnect:hover{
+    color: rgb(113, 127, 192);
+	transition: 0.5s;
+    cursor: pointer;
+	transform: scale(1.01);
+}
