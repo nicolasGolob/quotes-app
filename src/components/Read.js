@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import firebase from '../utils/firebaseConfig';
 import './Read.css';
+import UpdateDelete from './UpdateDelete';
 
 export default function Read() {
 const [quoteList, setQuoteList] = useState([])
@@ -29,9 +30,9 @@ useEffect(()=>{
             <ul>
                 {
                     quoteList &&
-                        quoteList.map((item, key)=>{
-                            return <p>{item.text} FROM {item.author}</p>
-                    })
+                        quoteList.map((item, index)=>
+                        <UpdateDelete item={item} key={index}/>
+                    )
                 }
             </ul>
         </div>
