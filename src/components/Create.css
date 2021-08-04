@@ -5,7 +5,7 @@
 }
 .create-form {
     position: absolute;
-    top:30%;
+    top:35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40rem;
@@ -21,5 +21,30 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr) ;
     gap:2rem;
+}
+
+input, textarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgba(218, 218, 218, 0.8);
+    font-size: 1.5rem;
+    color: #000000;
+    border-radius: 7px;
+}
+
+button {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dadada;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: .2s;
+    width: 100%;
+    background:rgb(10, 61, 119);
 }
 

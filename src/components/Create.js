@@ -7,22 +7,16 @@ export default function Create() {
     const [text, setText] = useState('');
 
     const createQuote = () =>{
-
-        const quotesDB = firebase.database().ref("quotesDB");
-
+        const quotesDB = firebase.database().ref("quotesDataBase");
         const quote = {
             author:author,
             text:text
         };
         setAuthor('');
         setText('');
-
+        //then we reset our elements
         quotesDB.push(quote);
         //send the data to firebase
-
-        setAuthor('');
-        setText('');
-        //then we reset our elements
     }
     return (
         <div className="create-container">
@@ -41,8 +35,8 @@ export default function Create() {
                         value={text}
                         onChange={(event)=>setText(event.target.value)}
                     />
+                    <button onClick={createQuote}>Create Quote</button>
                 </div>
-                <button onClick={createQuote}>Create Quote</button>
             </div>
         </div>
     )
