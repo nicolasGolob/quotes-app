@@ -16,7 +16,7 @@ useEffect(()=>{
         let list = [];
         for(let id in data){
         //important -> use the loop 'for in' only with a table like 'list =[]'
-            list.push({ ...data[id]})
+            list.push({ id,...data[id]})
             //push -> The push() method adds elements to an array
             //and after you push this result in this empty new table 'data'
             //with the spread operator we take what is in the list and we incorporate an id
@@ -30,9 +30,9 @@ useEffect(()=>{
             <ul>
                 {
                     quoteList &&
-                        quoteList.map((item, index)=>
-                        <UpdateDelete item={item} key={index}/>
-                    )
+                        quoteList.map((item, index)=>(
+                        <UpdateDelete item={item} key={index} />
+                    ))
                 }
             </ul>
         </div>

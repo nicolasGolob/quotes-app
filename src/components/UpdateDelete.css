@@ -1,0 +1,37 @@
+.item--container{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid rgba(216, 216, 216, 0.2);
+}
+.item--container p{
+    color:rgb(241, 241, 241);
+    font-size: 2rem;
+}
+.item--container h6{
+    color:rgb(155, 155, 155);
+    font-size: 1.8rem;
+    font-style: italic;
+}
+.button--container{
+    display:flex;
+    justify-content: center;
+    align-items:center ;
+    width:100%;
+    padding: 2rem 0;
+}
+.button--quote{
+    width: 7rem;
+    margin: 1rem;
+}
+.item--container--update{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;  
+}
+.item--update{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+}

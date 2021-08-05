@@ -1,9 +1,0 @@
-.item--section{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin:0 auto;
-    padding:.2rem;
-    font-size: 2rem;
-    color: aliceblue;
-}
