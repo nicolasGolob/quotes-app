@@ -4,6 +4,7 @@ import './Read.css';
 import UpdateDelete from './UpdateDelete';
 
 export default function Read() {
+    
 const [quoteList, setQuoteList] = useState([])
 useEffect(()=>{
     //important -> useEffect each time the component is triggered this is activated

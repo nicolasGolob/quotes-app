@@ -9,10 +9,11 @@ export default function UpdateDelete({item}) {
     const [authorUpdate, setAuthorUpdate] = useState(null);
     const [textUpdate, setTextUpdate] = useState(null);
 
+
     const updateItem = () =>{
         let quote = firebase.database().ref("quotesDataBase").child(item.id)
         //above, this is an method from firebase -> child take the props item and its id
-        if(authorUpdate !==null){
+        if(authorUpdate ){
             //quote corresponds to firebase above
             quote.update({
                 //here update will be true
@@ -21,7 +22,7 @@ export default function UpdateDelete({item}) {
             })
         }
         //and we reproduce exactly the same to text update
-        if(textUpdate !==null){
+        if(textUpdate ){
             //firebase method
             quote.update({
                 text: textUpdate
@@ -29,6 +30,10 @@ export default function UpdateDelete({item}) {
         }
         setUpdate(false)
         //ah this moment all of this is false but when you click on the button setUpdate code at the bottom, everything goes to true + checking all elements
+    }
+    const deleteItem = () =>{
+        let quote = firebase.database().ref("quotesDataBase").child(item.id)
+        quote.remove();
     }
     return (
         <li>
@@ -41,7 +46,7 @@ export default function UpdateDelete({item}) {
                     </div>
                     <div className="button--container">
                         <button className="button--quote"onClick={()=>setUpdate(true)}>Update</button>
-                        <button className="button--quote">Delete</button>
+                        <button className="button--quote" onClick={deleteItem}>Delete</button>
                     </div>
                     </>
                 )
