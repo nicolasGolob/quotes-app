@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import firebase from '../utils/firebaseConfig';
-import './Read.css';
+import './style/Read.css';
 import UpdateDelete from './UpdateDelete';
 
 export default function Read() {

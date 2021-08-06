@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from '../utils/firebaseConfig';
-import './NavBar.css';
+import './style/NavBar.css';
 
 export default function NavBar() {
     return (

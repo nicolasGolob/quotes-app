@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from '../utils/firebaseConfig';
-import './Create.css';
+import './style/Create.css';
+import { uidContext } from './uidContext';
 
 export default function Create() {
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
 
+    const uid = useContext(uidContext);
+
     const createQuote = () =>{
         const quotesDB = firebase.database().ref("quotesDataBase");
         const quote = {
+            uid:uid,
             author:author,
             text:text
+            
         };
         setAuthor('');
         setText('');

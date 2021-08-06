@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import firebase from '../utils/firebaseConfig';
-import './UpdateDelete.css';
+import './style/UpdateDelete.css';
+import { uidContext } from './uidContext';
 
 export default function UpdateDelete({item}) {
     //item -> passed in props with destructuring
@@ -8,7 +9,17 @@ export default function UpdateDelete({item}) {
     //it's a boolean it's set to false
     const [authorUpdate, setAuthorUpdate] = useState(null);
     const [textUpdate, setTextUpdate] = useState(null);
-
+    const uid = useContext(uidContext);
+    //we use a simple object without a use state because it does not perform the action instantly
+    const userCheck = () =>{
+        if(item.uid === uid){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    userCheck();
 
     const updateItem = () =>{
         let quote = firebase.database().ref("quotesDataBase").child(item.id)
@@ -37,37 +48,35 @@ export default function UpdateDelete({item}) {
     }
     return (
         <li>
-            {
-                upDate === false &&(
-                    <>
-                    <div className="item--container"> 
-                        <p>{item.text}</p>
-                        <h6>{item.author}</h6>
-                    </div>
-                    <div className="button--container">
-                        <button className="button--quote"onClick={()=>setUpdate(true)}>Update</button>
-                        <button className="button--quote" onClick={deleteItem}>Delete</button>
-                    </div>
-                    </>
-                )
-            } 
-            {
-                upDate &&(
-                    <div className="item--container--update">
-                        <textarea 
-                            className="item--update"
-                            defaultValue={item.text}
-                            onChange={(event)=>setTextUpdate(event.target.value)} 
-                        />
-                        <input 
-                            className="item--update"
-                            defaultValue={item.author}
-                            onChange={(event)=>setAuthorUpdate(event.target.value)} 
-                        />
-                        <button onClick={updateItem} >Validate Update</button>
-                    </div>
-                )
-            }  
+            { upDate === false &&(
+                <>
+                <div className="item--container"> 
+                    <p>{item.text}</p>
+                    <h6>{item.author}</h6>
+                </div>
+                { userCheck &&
+                <div className="button--container">
+                    <button className="button--quote"onClick={()=>setUpdate(true)}>Update</button>
+                    <button className="button--quote" onClick={deleteItem}>Delete</button>
+                </div>
+                }
+                </>
+            )} 
+            {upDate &&(
+                <div className="item--container--update">
+                    <textarea 
+                        className="item--update"
+                        defaultValue={item.text}
+                        onChange={(event)=>setTextUpdate(event.target.value)} 
+                    />
+                    <input 
+                        className="item--update"
+                        defaultValue={item.author}
+                        onChange={(event)=>setAuthorUpdate(event.target.value)} 
+                    />
+                    <button onClick={updateItem} >Validate Update</button>
+                </div>
+            )}  
         </li>
     )
 }
